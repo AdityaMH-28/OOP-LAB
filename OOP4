@@ -1,0 +1,87 @@
+#include<iostream>
+
+using namespace std;
+
+class complex {
+
+float real,img;
+
+public:
+
+complex() {
+
+real = 0;
+
+img = 0;
+
+}
+
+/*complex(float a, float b) {
+
+real = a;
+
+img = b;
+
+}*/
+
+void display() {
+
+cout << real << "+" << img << "i" << endl;
+
+}
+
+// Function Prototype
+
+complex operator+(complex);
+
+friend complex operator*(complex, complex);
+
+friend istream &operator >> (istream &, complex &);
+
+friend ostream &operator << (ostream &, complex &);
+
+};
+
+// Function Definition
+
+complex complex::operator+(complex c) {
+
+complex ob;
+
+ob.real = real + c.real;
+
+ob.img = img + c.img;
+
+return ob;
+
+}
+
+complex operator*(complex c1 , complex c2) {
+
+complex ob;
+
+ob.real= (c1.real * c2.real) - (c1.img * c2.img);
+
+ob.img =(c1.real * c2.img) + (c1.img * c2.real);
+
+return ob;
+
+}
+
+istream &operator >> (istream &in, complex &obj)
+
+{
+
+cout << "Enter the real part: ";
+
+in >> obj.real;
+
+cout << "Enter the imaginary part: ";
+
+in >> obj.img;
+
+return in;
+
+}
+
+ostream &operator << (ostream &out, complex &
