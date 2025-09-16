@@ -1,0 +1,36 @@
+CODE:
+/*Educational Institutional System*/
+#include <iostream>
+using namespace std;
+class staff {
+protected:
+ string name, dept;
+ int id;
+public:
+ void accept1();
+ void display1();
+};
+void staff::accept1() {
+ cout << "Enter the name : ";
+ cin >> name;
+ cout << "Enter the department: ";
+ cin >> dept;
+ cout << "Enter the ID : ";
+ cin >> id;
+}
+void staff::display1() {
+ cout << "\nName is: " << name << endl;
+ cout << "Department: " << dept << endl;
+ cout << "ID is: " << id << endl;
+}
+class teacher : public staff {
+private:
+ string subject;
+ int experience;
+public:
+ void accept2();
+ void display2();
+};
+void teacher::accept2() {
+ accept1();
+ cout << "Enter the subject: ";
